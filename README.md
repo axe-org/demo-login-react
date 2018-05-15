@@ -19,7 +19,7 @@
 
 ### 登录页面
 
-* 路由： `login://login`
+* 路由： `axes://login/login`
 * 参数： `account` : 字符串类型，自动填写的帐号
 * 登录成功回调 ： 返回数据为 `{userInfo:model}`： 一个键为`userInfo` , model类型，即上诉的`UserInfoModel`.
 * 登录成功发送通知 `LoginStatusChange` , 携带数据有两个：
@@ -31,7 +31,7 @@
 
 ### 注册界面
 
-* 路由: `login://register`
+* 路由: `axes://login/register`
 * 参数： `account` : 字符串类型，自动填写的帐号
 * 登录成功回调 ： 返回数据为 `{userInfo:model}`： 一个键为`userInfo` , model类型，即上诉的`UserInfoModel`.
 * 登录成功发送通知 `LoginStatusChange` , 携带数据有两个：
@@ -44,10 +44,18 @@
 
 ## 注意事项
 
-上述说明路由时，我们使用的是`login://login` ，即声明路由。
+上述说明路由时，我们使用的是`axes://login/register` ，即声明路由。
 
 ## 单页面应用问题
 
 可以查看[src/router.js](src/router.js) , 我们在`react-native`中继续使用单页面应用。
 
 该文件中的`goBack`方法， 用于处理`AXEReactViewController`的返回事件。
+
+## 打包命令
+
+我们的打包命令为
+
+	react-native bundle --entry-file index.js --dev false --bundle-output index.bundle
+	
+我们约定了入口文件固定为 `index.js` ,且打包后的文件固定为 `index.bundle` 

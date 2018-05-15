@@ -12,13 +12,12 @@ import {
 } from 'react-native'
 import axe from 'axe-react'
 import Loader from './Loader'
-import { history } from './router'
 import Toast from 'react-native-easy-toast'
 
 export default class Login extends Component {
   constructor (props) {
     super(props)
-    this.state = { 
+    this.state = {
       account: '',
       password: '',
       lastName: '',
@@ -46,7 +45,7 @@ export default class Login extends Component {
     this.setState({loading: true})
     setTimeout(() => {
       this.setState({loading: false})
-      this.refs.toast.show('登录成功。')
+      this.refs.toast.show('注册成功。')
       setTimeout(() => {
         let data = axe.data.create()
         // model 类型效果展示。
