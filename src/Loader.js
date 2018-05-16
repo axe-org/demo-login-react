@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react'
 import {
   StyleSheet,
   View,
   Modal,
   ActivityIndicator
-} from 'react-native';
+} from 'react-native'
 
 const Loader = props => {
   const {
-    loading,
-    ...attributes
-  } = props;
+    loading
+  } = props
 
   return (
     <Modal
-      transparent={true}
+      transparent={!!true}
       animationType={'none'}
       visible={loading}>
       <View style={styles.modalBackground}>
@@ -44,6 +43,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around'
   }
-});
+})
 
 export default Loader

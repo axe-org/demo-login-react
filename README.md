@@ -46,11 +46,9 @@
 
 上述说明路由时，我们使用的是`axes://login/register` ，即声明路由。
 
-## 单页面应用问题
+## 多页面应用
 
-可以查看[src/router.js](src/router.js) , 我们在`react-native`中继续使用单页面应用。
-
-该文件中的`goBack`方法， 用于处理`AXEReactViewController`的返回事件。
+我们推荐使用的 `react-native`为多页面应用， 使用原生导航栏，以做到更加接近原生的用户体验。
 
 ## 打包命令
 

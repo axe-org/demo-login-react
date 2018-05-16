@@ -8,12 +8,10 @@
     "build": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --dev false --bundle-output bundle.js"
   },
   "dependencies": {
-    "axe-react": "^0.1.1",
-    "history": "^4.7.2",
+    "axe-react": "^0.1.2",
     "react": "16.3.0",
     "react-native": "0.54.1",
-    "react-native-easy-toast": "^1.1.0",
-    "react-router-native": "^4.2.0"
+    "react-native-easy-toast": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

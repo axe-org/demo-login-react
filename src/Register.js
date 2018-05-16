@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableHighlight,
-  NativeModules,
   SegmentedControlIOS
 } from 'react-native'
 import axe from 'axe-react'
@@ -25,9 +24,7 @@ export default class Login extends Component {
       selectedIndex: 0,
       loading: false
     }
-  }
-  componentDidMount () {
-    NativeModules.nativeModule.setTitle('注册')
+    axe.navigation.setTitle('注册')
   }
   onPressRegister () {
     if (this.state.account.trim() === '') {
@@ -74,7 +71,8 @@ export default class Login extends Component {
           axe.router.callback(data)
         } else {
           // 如果没有回调，则手动关闭页面。
-          NativeModules.nativeModule.closePage()
+          // 另一种确保页面正确关闭，需要这里`close`时传具体页数。
+          axe.navigation.closePage()
         }
       }, 1000)
     }, 2000)
@@ -126,6 +124,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 64,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',

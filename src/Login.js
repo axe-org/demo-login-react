@@ -6,12 +6,10 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableHighlight,
-  NativeModules
+  TouchableHighlight
 } from 'react-native'
 import axe from 'axe-react'
 import Loader from './Loader'
-import { history } from './router'
 import Toast from 'react-native-easy-toast'
 
 export default class Login extends Component {
@@ -25,10 +23,7 @@ export default class Login extends Component {
       }
     }
     this.state = initState
-  }
-  componentDidMount () {
-    // 放在componentDidMount，以应对路由跳转。
-    NativeModules.nativeModule.setTitle('登录')
+    axe.navigation.setTitle('登录')
   }
   onPressLogin () {
     if (this.state.account.trim() === '') {
@@ -67,13 +62,18 @@ export default class Login extends Component {
           axe.router.callback(data)
         } else {
           // 如果没有回调，则手动关闭页面。
-          NativeModules.nativeModule.closePage()
+          axe.navigation.closePage()
         }
       }, 1000)
     }, 2000)
   }
   onPressRegister () {
-    history.push('/register')
+    // 页面跳转，要确保页面能正确关闭
+    if (axe.router.routeInfo.needCallback) {
+      axe.navigation.push('register')
+    } else {
+      axe.navigation.redirect('register')
+    }
   }
   render () {
     return (
@@ -110,6 +110,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 64,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
