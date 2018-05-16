@@ -56,6 +56,6 @@
 
 我们的打包命令为
 
-	react-native bundle --entry-file index.js --dev false --bundle-output index.bundle
+	react-native bundle --entry-file index.js --dev false --bundle-output bundle.js
 	
-我们约定了入口文件固定为 `index.js` ,且打包后的文件固定为 `index.bundle` 
+我们约定了入口文件固定为 `index.js` ,且打包后的文件固定为 `bundle.js ` 
